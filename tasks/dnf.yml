@@ -1,0 +1,10 @@
+- name: Download vector packages dnf
+  ansible.builtin.get_url:
+    url: "https://yum.vector.dev/stable/vector-0/x86_64/vector-{{ vector_version }}.x86_64.rpm"
+    dest: "./vector-{{ vector_version }}-1.x86_64.rpm"
+    mode: "0644"
+- name: Install vector packages dnf
+  become: true
+  ansible.builtin.dnf:
+    name: "./vector-{{ vector_version }}-1.x86_64.rpm"
+    disable_gpg_check: true

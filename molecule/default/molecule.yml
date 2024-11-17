@@ -1,0 +1,16 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: fedora
+    image: pycontribs/fedora:latest
+    pre_build_image: true     
+  - name: debian
+    image: pycontribs/debian:latest
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

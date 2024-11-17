@@ -1,0 +1,9 @@
+- name: Download vector packages apt
+  ansible.builtin.get_url:
+    url: "https://packages.timber.io/vector/latest/vector_{{ vector_version }}_amd64.deb"
+    dest: "./vector_{{ vector_version }}_amd64.deb"
+    mode: "0644"
+- name: Install vector packages apt
+  become: true
+  ansible.builtin.apt:
+    deb: "./vector_{{ vector_version }}_amd64.deb"
